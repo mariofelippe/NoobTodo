@@ -32,5 +32,13 @@ namespace NoobTodo.Teste
             Assert.Equal(isDone, todo.IsDone);
 
         }
+        [Fact]
+        public void DeveGerarExcecaoTituloVazio()
+        {
+            //arrange
+            //act
+            //Asert
+            Assert.Throws<ArgumentException>(() => new Todo(""));
+        }
     }
 }
