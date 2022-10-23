@@ -3,14 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoobTodo", "NoobTodo\NoobTodo.csproj", "{13EB6528-2BBD-4D1A-9665-09436EE49698}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoobTodo", "NoobTodo\NoobTodo.csproj", "{13EB6528-2BBD-4D1A-9665-09436EE49698}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BA03339C-BFFC-4B88-B228-3B7B9AB0838B}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoobTodo.Teste", "NoobTodo.Teste\NoobTodo.Teste.csproj", "{AEC1F399-F8AB-454E-95B7-0E3900CBFCE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoobTodo.Teste", "NoobTodo.Teste\NoobTodo.Teste.csproj", "{AEC1F399-F8AB-454E-95B7-0E3900CBFCE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoobTodo.Data", "NoobTodo.Data\NoobTodo.Data.csproj", "{9670FB53-1136-48D0-BD7D-7701B1DCDEBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{AEC1F399-F8AB-454E-95B7-0E3900CBFCE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEC1F399-F8AB-454E-95B7-0E3900CBFCE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEC1F399-F8AB-454E-95B7-0E3900CBFCE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9670FB53-1136-48D0-BD7D-7701B1DCDEBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9670FB53-1136-48D0-BD7D-7701B1DCDEBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9670FB53-1136-48D0-BD7D-7701B1DCDEBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9670FB53-1136-48D0-BD7D-7701B1DCDEBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
