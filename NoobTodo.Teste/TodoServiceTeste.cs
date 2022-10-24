@@ -52,7 +52,7 @@ namespace NoobTodo.Teste
         {
             //arrange
             //act
-            var todos = _repository.GetAll().GetEnumerator();
+            var todos = _service.GetAll().GetEnumerator();
             var listaTodos = new List<Todo>();
             while (todos.MoveNext())
             {
@@ -68,19 +68,33 @@ namespace NoobTodo.Teste
             //arrange
             var novoTitulo = "Atualização do todo 4";
             var novaDescricao = "Descrição atualizada";
-            var todo = _repository.GetById(4);
+            var todo = _service.GetById(4);
 
             //act
             todo.Title = novoTitulo;
             todo.Description = novaDescricao;
-            var atualizou = _repository.Update(4, todo);
-            var todoAtualizado = _repository.GetById(4);
+            var atualizou = _service.Update(4, todo);
+            var todoAtualizado = _service.GetById(4);
 
             //assert
             Assert.True(atualizou);
             Assert.Equal(novoTitulo,todoAtualizado.Title);
             Assert.Equal(novaDescricao,todoAtualizado.Description);
 
+        }
+
+        [Fact]
+        public void DeveDeletarUmtodo()
+        {
+            //arrange
+            var todo = _service.GetById(3);
+            //act
+            var deletou = _service.Delete(todo.Id);
+            todo = _service.GetById(3);
+            //assert 
+            Assert.True(deletou);
+            Assert.Null(todo);
+            
         }
 
         private void Pupular()
