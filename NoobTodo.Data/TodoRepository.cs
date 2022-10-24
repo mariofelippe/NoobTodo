@@ -59,7 +59,22 @@ namespace NoobTodo.Data
 
         public bool Update(int id, Todo todo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if(id == todo.Id)
+                {
+                    _context.Todos.Update(todo);
+                    _context.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+               return false;
+            }
+
+                
         }
     }
 }

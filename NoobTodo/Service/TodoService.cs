@@ -33,7 +33,7 @@ namespace NoobTodo.Service
 
         public bool Update(int id, Todo todo)
         {
-            throw new NotImplementedException();
+            return _repository.Update(id, todo);
         }
     }
 }
