@@ -17,7 +17,7 @@ namespace NoobTodo.Data
         {
             try
             {
-                _context.Add(todo);
+                _context.Todos.Add(todo);
                 _context.SaveChanges();
                 return true;
             }
@@ -35,12 +35,26 @@ namespace NoobTodo.Data
 
         public IEnumerable<Todo> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _context.Todos;
+            }
+            catch
+            {
+                throw new Exception("Erro");
+            }
         }
 
-        public Todo GetById(int id)
-        {
-            throw new NotImplementedException();
+        public Todo GetById(int id)        {
+            try
+            {
+                return _context.Todos.FirstOrDefault(t => t.Id == id);
+            }
+            catch
+            {
+                throw new Exception($"Erro ao obter a tarefa com Id {id}!");
+            }
+            
         }
 
         public bool Update(int id, Todo todo)

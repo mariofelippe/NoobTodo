@@ -23,12 +23,12 @@ namespace NoobTodo.Service
 
         public IEnumerable<Todo> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll();
         }
 
         public Todo GetById(int id)
         {
-            throw new NotImplementedException();
+            return _repository.GetById(id);
         }
 
         public bool Update(int id, Todo todo)
