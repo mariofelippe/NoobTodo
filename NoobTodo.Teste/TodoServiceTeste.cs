@@ -62,6 +62,27 @@ namespace NoobTodo.Teste
             Assert.True(listaTodos.Count > 1);
         }
 
+        [Fact]
+        public void DeveAtualizarUmTodo()
+        {
+            //arrange
+            var novoTitulo = "Atualização do todo 4";
+            var novaDescricao = "Descrição atualizada";
+            var todo = _repository.GetById(4);
+
+            //act
+            todo.Title = novoTitulo;
+            todo.Description = novaDescricao;
+            var atualizou = _repository.Update(4, todo);
+            var todoAtualizado = _repository.GetById(4);
+
+            //assert
+            Assert.True(atualizou);
+            Assert.Equal(novoTitulo,todoAtualizado.Title);
+            Assert.Equal(novaDescricao,todoAtualizado.Description);
+
+        }
+
         private void Pupular()
         {
             var todos = new List<Todo>()

@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoobTodo.Teste", "NoobTodo.Teste\NoobTodo.Teste.csproj", "{AEC1F399-F8AB-454E-95B7-0E3900CBFCE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoobTodo.Data", "NoobTodo.Data\NoobTodo.Data.csproj", "{9670FB53-1136-48D0-BD7D-7701B1DCDEBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoobTodo.Data", "NoobTodo.Data\NoobTodo.Data.csproj", "{9670FB53-1136-48D0-BD7D-7701B1DCDEBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
