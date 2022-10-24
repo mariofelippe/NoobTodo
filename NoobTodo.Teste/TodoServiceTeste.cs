@@ -3,6 +3,7 @@ using NoobTodo.Data;
 using Xunit;
 using Microsoft.EntityFrameworkCore;
 using NoobTodo.Entities;
+using System.Collections.Generic;
 
 namespace NoobTodo.Teste
 {
@@ -18,9 +19,11 @@ namespace NoobTodo.Teste
         {
 
             _context = new TodoContext(dbContextOptions);
+            _context.Database.EnsureDeleted();
             _context.Database.EnsureCreated();
             _repository = new TodoRepository(_context);
             _service = new TodoService(_repository);
+            Pupular();
 
         }
 
@@ -32,6 +35,44 @@ namespace NoobTodo.Teste
             //act
             //assert
             Assert.True(_service.Add(todo));
+        }
+        [Fact]
+        public void DeveRetornarUmTodo()
+        {
+            //arrange
+            string title = "Teste 2";
+            //act
+            var todo = _service.GetById(2);
+            //assert
+            Assert.Equal(title, todo.Title);
+        }
+     
+        [Fact]
+        public void DeveRetornarTodosTodos()
+        {
+            //arrange
+            //act
+            var todos = _repository.GetAll().GetEnumerator();
+            var listaTodos = new List<Todo>();
+            while (todos.MoveNext())
+            {
+                listaTodos.Add(todos.Current);
+            }
+            //assert
+            Assert.True(listaTodos.Count > 1);
+        }
+
+        private void Pupular()
+        {
+            var todos = new List<Todo>()
+            {
+                new Todo("Teste 1"){Description = "Teste 1"},
+                new Todo("Teste 2"){Description = "Teste 2"},
+                new Todo("Teste 3"){Description = "Teste 3"},
+                new Todo("Teste 4"){Description = "Teste 4"},
+            };
+            _context.AddRange(todos);
+            _context.SaveChanges();
         }
     }
 }
