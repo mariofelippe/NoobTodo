@@ -30,7 +30,17 @@ namespace NoobTodo.Data
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var todo =_context.Todos.FirstOrDefault(todo => todo.Id == id);
+                _context.Todos.Remove(todo);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public IEnumerable<Todo> GetAll()
