@@ -14,7 +14,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoobTodo.Teste", "NoobTodo.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoobTodo.Data", "NoobTodo.Data\NoobTodo.Data.csproj", "{9670FB53-1136-48D0-BD7D-7701B1DCDEBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoobTodo.Api", "NoobTodo.Api\NoobTodo.Api.csproj", "{4123808F-E27B-45E2-B418-8ECB553F547C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoobTodo.Api", "NoobTodo.Api\NoobTodo.Api.csproj", "{5B5DDEF7-CE79-4F7A-85EB-D1C7196FF10C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,10 +34,10 @@ Global
 		{9670FB53-1136-48D0-BD7D-7701B1DCDEBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9670FB53-1136-48D0-BD7D-7701B1DCDEBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9670FB53-1136-48D0-BD7D-7701B1DCDEBA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4123808F-E27B-45E2-B418-8ECB553F547C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4123808F-E27B-45E2-B418-8ECB553F547C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4123808F-E27B-45E2-B418-8ECB553F547C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4123808F-E27B-45E2-B418-8ECB553F547C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B5DDEF7-CE79-4F7A-85EB-D1C7196FF10C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B5DDEF7-CE79-4F7A-85EB-D1C7196FF10C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B5DDEF7-CE79-4F7A-85EB-D1C7196FF10C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B5DDEF7-CE79-4F7A-85EB-D1C7196FF10C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
