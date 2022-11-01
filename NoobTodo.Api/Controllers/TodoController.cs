@@ -25,5 +25,11 @@ namespace NoobTodo.Api.Controllers
         {
             return _service.GetAll();
         }
+        [HttpPost]
+        public IActionResult TodoAdd([FromBody] Todo todo)
+        {
+            _service.Add(todo);
+            return CreatedAtAction(nameof(GetTodos),todo.Id,todo);
+        }
     }
 }
