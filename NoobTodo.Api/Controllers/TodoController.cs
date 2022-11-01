@@ -31,5 +31,13 @@ namespace NoobTodo.Api.Controllers
             _service.Add(todo);
             return CreatedAtAction(nameof(GetTodos),todo.Id,todo);
         }
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            var todo = _service.GetById(id);
+            if (todo == null)
+                return NotFound();
+            return Ok(todo);
+        }
     }
 }
