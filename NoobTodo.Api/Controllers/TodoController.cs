@@ -29,7 +29,7 @@ namespace NoobTodo.Api.Controllers
         public IActionResult TodoAdd([FromBody] Todo todo)
         {
             _service.Add(todo);
-            return CreatedAtAction(nameof(GetTodos),todo.Id,todo);
+            return CreatedAtAction(nameof(GetById),new { id = todo.Id },todo);
         }
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
