@@ -11,6 +11,7 @@ builder.Services.AddDbContext<TodoContext>(options =>
 options.UseMySql(builder.Configuration.GetConnectionString("TodoConnection"), new MySqlServerVersion(new Version(8, 0)), b => b.MigrationsAssembly("NoobTodo.Api")));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 
