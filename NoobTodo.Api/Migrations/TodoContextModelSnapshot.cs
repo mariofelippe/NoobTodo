@@ -29,13 +29,12 @@ namespace NoobTodo.Api.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<bool>("IsDone")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<DateTime>("TaskDate")
+                    b.Property<DateTime?>("TaskDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Title")
