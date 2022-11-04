@@ -4,6 +4,8 @@ using NoobTodo.Data;
 using NoobTodo.Interfaces.Repository;
 using NoobTodo.Interfaces.Service;
 using NoobTodo.Service;
+using NoobTodo.DTOs;
+using AutoMapper;
 
 namespace NoobTodo.Api.Controllers
 {
@@ -11,14 +13,15 @@ namespace NoobTodo.Api.Controllers
     [Route("api/[controller]")]
     public class TodoController : ControllerBase
     {
-
+        private readonly IMapper _mapper;
         private readonly TodoRepository _repository;
         private readonly TodoService _service;
         
-        public TodoController(TodoContext context)
+        public TodoController(TodoContext context, IMapper mapper)
         {
             _repository = new TodoRepository(context);
             _service = new TodoService(_repository);
+            _mapper = mapper;
         }
         [HttpGet]
         public IEnumerable<Todo> GetTodos()
@@ -26,8 +29,9 @@ namespace NoobTodo.Api.Controllers
             return _service.GetAll();
         }
         [HttpPost]
-        public IActionResult TodoAdd([FromBody] Todo todo)
+        public IActionResult TodoAdd([FromBody] CreateTodoDto todoDto)
         {
+            Todo todo = _mapper.Map<Todo>(todoDto);
             _service.Add(todo);
             return CreatedAtAction(nameof(GetById),new { id = todo.Id },todo);
         }
