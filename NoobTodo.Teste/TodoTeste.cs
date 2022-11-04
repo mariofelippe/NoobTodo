@@ -40,5 +40,15 @@ namespace NoobTodo.Teste
             //Asert
             Assert.Throws<ArgumentException>(() => new Todo(""));
         }
+        [Fact]
+        public void DeveCriarUmTodoSomenteComTitulo()
+        {
+            //arrange
+            string title = "Lavar o carro";
+            //act
+            var todo = new Todo(title);
+            //assert
+            Assert.Equal(title, todo.Title);
+        }
     }
 }
