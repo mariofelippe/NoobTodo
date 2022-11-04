@@ -39,5 +39,29 @@ namespace NoobTodo.Api.Controllers
                 return NotFound();
             return Ok(todo);
         }
+        [HttpPut("{id}")]
+        public IActionResult UpdateTodo(int id, [FromBody] Todo todo) 
+        {
+            var todoDb = _service.GetById(id);
+            if(todoDb== null)
+            {
+                return NotFound();
+            }
+            todoDb.Title = todo.Title;
+            todoDb.Description = todo.Description;
+            _service.Update(id, todoDb);
+            return NoContent(); 
+        }
+        [HttpDelete("{id}")]
+        public IActionResult RemoveTodo(int id)
+        {
+            Todo todo = _service.GetById(id);
+            if(todo == null)
+            {
+                return NotFound();
+            }
+            _service.Delete(id);
+            return NoContent();
+        }
     }
 }
