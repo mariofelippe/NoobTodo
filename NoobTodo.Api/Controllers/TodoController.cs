@@ -41,7 +41,8 @@ namespace NoobTodo.Api.Controllers
             var todo = _service.GetById(id);
             if (todo == null)
                 return NotFound();
-            return Ok(todo);
+            ReadTodoDto todoDto = _mapper.Map<ReadTodoDto>(todo);
+            return Ok(todoDto);
         }
         [HttpPut("{id}")]
         public IActionResult UpdateTodo(int id, [FromBody] UpdateTodoDto updateTodo) 
