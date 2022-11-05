@@ -15,3 +15,5 @@ Os conceitos aplicados nesse projetos foram estudados nos últimos meses e estão 
 - Código Limpo
 - Banco de dados
 - DTO
+- AutoMapper
+- Entity Framework
