@@ -44,16 +44,15 @@ namespace NoobTodo.Api.Controllers
             return Ok(todo);
         }
         [HttpPut("{id}")]
-        public IActionResult UpdateTodo(int id, [FromBody] Todo todo) 
+        public IActionResult UpdateTodo(int id, [FromBody] UpdateTodoDto updateTodo) 
         {
-            var todoDb = _service.GetById(id);
-            if(todoDb== null)
+            var todo = _service.GetById(id);
+            if(todo == null)
             {
                 return NotFound();
             }
-            todoDb.Title = todo.Title;
-            todoDb.Description = todo.Description;
-            _service.Update(id, todoDb);
+            _mapper.Map(updateTodo, todo);
+            _service.Update(id, todo);
             return NoContent(); 
         }
         [HttpDelete("{id}")]
