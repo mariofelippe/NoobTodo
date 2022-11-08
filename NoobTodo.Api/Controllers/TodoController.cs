@@ -24,9 +24,10 @@ namespace NoobTodo.Api.Controllers
             _mapper = mapper;
         }
         [HttpGet]
-        public IEnumerable<Todo> GetTodos()
+        public IEnumerable<ReadTodoDto> GetTodos()
         {
-            return _service.GetAll();
+            return _mapper.Map<List<ReadTodoDto>>(_service.GetAll());
+            
         }
         [HttpPost]
         public IActionResult TodoAdd([FromBody] CreateTodoDto todoDto)
