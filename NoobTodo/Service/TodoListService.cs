@@ -18,7 +18,7 @@ namespace NoobTodo.Service
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            return _repository.Delete(id);
         }
 
         public IEnumerable<TodoList> GetAll()

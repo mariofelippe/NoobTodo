@@ -29,7 +29,19 @@ namespace NoobTodo.Data
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                TodoList todoList = _context.TodoLists.Find(id);
+                if (todoList == null)
+                    return false;
+                _context.TodoLists.Remove(todoList);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public IEnumerable<TodoList> GetAll()
