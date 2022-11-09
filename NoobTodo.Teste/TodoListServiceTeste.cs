@@ -22,10 +22,11 @@ namespace NoobTodo.Teste
             _context.Database.EnsureCreated();
             _repository = new TodoListRepository(_context);
             _service = new TodoListService(_repository);
+            Populate();
         }
 
         [Fact]
-        public void DeveriaAdicionarUmaLista()
+        public void DeveriaAdicionarUmaListaNoBanco()
         {
             //arrange
             TodoList lista = new TodoList("Lista 0");
@@ -37,6 +38,37 @@ namespace NoobTodo.Teste
             //assert
             Assert.True(adicionou);
 
+        }
+
+
+        private void Populate()
+        {
+            var todos = new List<TodoList>()
+            {
+                new TodoList("Lista 1"),
+                new TodoList("Lista 2")
+                {
+                    Description = "Descrição lista 2", Todos = new List<Todo>()
+                {
+                    new Todo("Compra leite"),
+                    new Todo("Mandar e-mail"){Description = "Uma descrição"}
+                }                
+                }, 
+                new TodoList("Lista 3"),
+                new TodoList("Lista 4")
+                {
+                    Description = "Descrição dessa lista",
+                    Todos = new List<Todo>()
+                    {
+                        new Todo("Essa é uma tarefa")
+                        {
+                            TaskDate = System.DateTime.Parse("10/11/2022") 
+                        }
+                    }
+                }
+            };
+            _context.AddRange(todos);
+            _context.SaveChanges();
         }
     }
 }
