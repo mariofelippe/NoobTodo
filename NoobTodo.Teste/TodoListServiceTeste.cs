@@ -40,6 +40,19 @@ namespace NoobTodo.Teste
 
         }
 
+        [Fact]
+        public void DeveriaRemoverUmaListaDoBanco()
+        {
+            //arrange
+            int id = 3;
+            //act
+            bool removed = _service.Delete(id);           
+            //Assert
+            Assert.True(removed);
+          
+            
+        }
+
 
         private void Populate()
         {
