@@ -11,5 +11,6 @@ namespace NoobTodo.Data
         }
 
         public DbSet<Todo> Todos { get; set; }
+        public DbSet<TodoList> TodoLists { get; set; }
     }
 }
