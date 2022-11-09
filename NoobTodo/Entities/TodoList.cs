@@ -14,5 +14,10 @@ namespace NoobTodo.Entities
         {
             Title = title;
         }
+
+        public void AddTodo(Todo todo)
+        {
+            Todos.Add(todo);
+        }
     }
 }
