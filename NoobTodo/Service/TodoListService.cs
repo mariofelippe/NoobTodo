@@ -23,7 +23,7 @@ namespace NoobTodo.Service
 
         public IEnumerable<TodoList> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll();
         }
 
         public TodoList GetById(int id)

@@ -46,7 +46,14 @@ namespace NoobTodo.Data
 
         public IEnumerable<TodoList> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _context.TodoLists;
+
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public TodoList GetById(int id)
