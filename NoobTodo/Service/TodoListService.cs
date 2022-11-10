@@ -28,7 +28,7 @@ namespace NoobTodo.Service
 
         public TodoList GetById(int id)
         {
-            throw new NotImplementedException();
+            return _repository.GetById(id);
         }
 
         public bool Update(int id, TodoList entity)

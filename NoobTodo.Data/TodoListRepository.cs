@@ -51,7 +51,14 @@ namespace NoobTodo.Data
 
         public TodoList GetById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _context.TodoLists.Find(id);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public bool Update(int id, TodoList entity)
