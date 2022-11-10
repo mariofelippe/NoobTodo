@@ -46,10 +46,11 @@ namespace NoobTodo.Teste
             //arrange
             int id = 3;
             //act
-            bool removed = _service.Delete(id);           
+            bool removed = _service.Delete(id); 
+            TodoList todoList = _service.GetById(id);
             //Assert
             Assert.True(removed);
-          
+            Assert.Null(todoList);          
             
         }
         [Fact]
@@ -63,6 +64,20 @@ namespace NoobTodo.Teste
             Assert.NotNull(todoList);
             Assert.Equal(id, todoList.Id);
             
+        }
+        [Fact]
+        public void DeveriaRetornarTodasAsLista()
+        {
+            //arrange
+            List<TodoList> todosLists = new List<TodoList>();
+            //act
+            var listBase = _service.GetAll().GetEnumerator();
+            while (listBase.MoveNext())
+            {
+                todosLists.Add(listBase.Current);
+            }
+            Assert.True(4 == todosLists.Count);
+
         }
 
 
