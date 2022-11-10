@@ -68,9 +68,20 @@ namespace NoobTodo.Data
             }
         }
 
-        public bool Update(int id, TodoList entity)
+        public bool Update(int id, TodoList todoList)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (id != todoList.Id)
+                    return false;
+                _context.TodoLists.Update(todoList);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
