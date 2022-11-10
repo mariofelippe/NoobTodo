@@ -76,10 +76,27 @@ namespace NoobTodo.Teste
             {
                 todosLists.Add(listBase.Current);
             }
+            //assert
             Assert.True(4 == todosLists.Count);
-
         }
-
+        [Fact]
+        public void DeveriaAtualizaUmaLista()
+        {
+            //arrange
+            string title = "Novo titulo";
+            string description = "Nova descrição";
+            int id = 4;
+            TodoList list = _service.GetById(id);
+            //act
+            list.Title = title;
+            list.Description = description;
+            bool updated = _service.Update(id, list);
+            list = _service.GetById(id);
+            //assert
+            Assert.True(updated);
+            Assert.Equal(title, list.Title);
+            Assert.Equal(description, list.Description);
+        }
 
         private void Populate()
         {
