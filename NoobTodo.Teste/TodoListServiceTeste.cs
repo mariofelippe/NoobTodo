@@ -52,6 +52,18 @@ namespace NoobTodo.Teste
           
             
         }
+        [Fact]
+        public void DeveriaBuscarListaPorId()
+        {
+            //arrange
+            int id = 1;
+            //act
+            TodoList todoList = _service.GetById(id);
+            //assert
+            Assert.NotNull(todoList);
+            Assert.Equal(id, todoList.Id);
+            
+        }
 
 
         private void Populate()
