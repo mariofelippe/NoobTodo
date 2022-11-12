@@ -20,6 +20,8 @@ namespace NoobTodo.Entities
         public string? Description { get; set; }
         public DateTime? TaskDate { get; set; }
         public bool IsDone { get; set; }
+        public virtual TodoList TodoList { get; set; }
+        public int TodoListId { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
