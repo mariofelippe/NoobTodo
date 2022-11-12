@@ -1,8 +1,11 @@
 ﻿
+using NoobTodo.Entities;
+
 namespace NoobTodo.DTOs
 {
     public class ReadTodoDto
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public string? Description { get; set; }
         public DateTime? TaskDate { get; set; }
