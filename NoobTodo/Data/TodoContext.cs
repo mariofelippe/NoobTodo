@@ -10,6 +10,14 @@ namespace NoobTodo.Data
 
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Todo>()
+                .HasOne(todo => todo.TodoList)
+                .WithMany(todoList => todoList.Todos)
+                .HasForeignKey(todo => todo.TodoListId);
+        }
+
         public DbSet<Todo> Todos { get; set; }
         public DbSet<TodoList> TodoLists { get; set; }
     }
