@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using NoobTodo.Data;
+using NoobTodo.DTOs;
 using NoobTodo.Entities;
 using NoobTodo.Service;
 
@@ -10,6 +11,7 @@ namespace NoobTodo.Api.Controllers
     [Route("api/[controller]")]
     public class TodoListController : Controller
     {
+        private readonly IMapper _mapper;
         private readonly TodoListService _service;
         private readonly TodoListRepository _repository;
 
@@ -17,11 +19,13 @@ namespace NoobTodo.Api.Controllers
         {
             _repository = new TodoListRepository(context);
             _service = new TodoListService(_repository);
+            _mapper = mapper;
         }
         [HttpGet]
-        public IEnumerable<TodoList> GetAll()
+        public IEnumerable<ReadTodoListDto> GetAll()       
         {
-            return _service.GetAll();
+
+            return _mapper.Map<List<ReadTodoListDto>>(_service.GetAll());
         }
 
         [HttpPost]
