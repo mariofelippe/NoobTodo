@@ -35,5 +35,15 @@ namespace NoobTodo.Api.Controllers
             return CreatedAtAction(nameof(GetAll), new { id = todoList.Id }, todoList);
 
         }
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            ReadTodoListDto todoListDto = _mapper.Map<ReadTodoListDto>(_service.GetById(id));
+            if (todoListDto != null)
+            {
+                return Ok(todoListDto);
+            }
+            return NotFound();
+        }
     }
 }
