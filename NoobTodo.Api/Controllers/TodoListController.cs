@@ -29,10 +29,12 @@ namespace NoobTodo.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateTodoList([FromBody] TodoList todoList)
+        public IActionResult CreateTodoList([FromBody] CreateTodoListDto createTodoListDto)
         {
+            TodoList todoList = _mapper.Map<TodoList>(createTodoListDto);
+            ReadTodoListDto readTodoListDto = _mapper.Map<ReadTodoListDto>(todoList);
             _service.Add(todoList);
-            return CreatedAtAction(nameof(GetAll), new { id = todoList.Id }, todoList);
+            return CreatedAtAction(nameof(GetById), new { id = todoList.Id }, todoList);
 
         }
         [HttpGet("{id}")]
