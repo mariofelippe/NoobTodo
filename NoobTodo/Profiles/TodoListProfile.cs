@@ -9,6 +9,7 @@ namespace NoobTodo.Profiles
         public TodoListProfile()
         {
             CreateMap<TodoList,ReadTodoListDto>();
+            CreateMap<CreateTodoListDto,TodoList>();
         }
     }
 }
