@@ -4,6 +4,7 @@ using Xunit;
 using Microsoft.EntityFrameworkCore;
 using NoobTodo.Entities;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NoobTodo.Teste
 {
@@ -96,6 +97,25 @@ namespace NoobTodo.Teste
             Assert.True(updated);
             Assert.Equal(title, list.Title);
             Assert.Equal(description, list.Description);
+        }
+
+        [Fact]
+        public void DeveRetornarTodosDaLista()
+        {
+            //arrange
+            var todoList = _service.GetAll();
+            List<Todo> todos = new List<Todo>();
+            //act
+            foreach(TodoList list in todoList.ToList())
+            {
+                foreach (Todo todo in list.Todos)
+                {
+                    todos.Add(todo);
+                }
+            }
+            //asssert
+            Assert.Equal(3, todos.Count);
+            
         }
 
         private void Populate()
