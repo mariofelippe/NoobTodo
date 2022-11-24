@@ -10,5 +10,6 @@ namespace NoobTodo.DTOs
         public string? Description { get; set; }
         public DateTime? TaskDate { get; set; }
         public bool IsDone { get; set; }
+        public int TodoListId { get; set; }
     }
 }

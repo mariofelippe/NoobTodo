@@ -32,6 +32,7 @@ namespace NoobTodo.DTOs
                 return timeDelay;
             }
         }
+        public int TodoListId { get; set; }
         public DateTime CreatedAt { get; set; } 
         public DateTime UpdatedAt { get; set; } 
     }
