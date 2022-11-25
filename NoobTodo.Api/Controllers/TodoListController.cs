@@ -59,5 +59,16 @@ namespace NoobTodo.Api.Controllers
             _service.Update(id, todoList);
             return NoContent();
         }
+        [HttpDelete("{id}")]
+        public IActionResult RemoveTodoList(int id)
+        {
+            TodoList todoList = _service.GetById(id);
+            if(todoList == null)
+            {
+                return NotFound();
+            }
+            _service.Delete(id);
+            return NoContent();
+        }
     }
 }
