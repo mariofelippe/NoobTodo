@@ -47,5 +47,17 @@ namespace NoobTodo.Api.Controllers
             }
             return NotFound();
         }
+        [HttpPut("{id}")]
+        public IActionResult UpdateTodoLisit([FromBody] UpdateTodoListDto updateTodoList, int id)
+        {
+            TodoList todoList = _service.GetById(id);
+            if (todoList == null)
+            {
+                return NotFound();
+            }
+            _mapper.Map(updateTodoList, todoList);
+            _service.Update(id, todoList);
+            return NoContent();
+        }
     }
 }
