@@ -10,6 +10,7 @@ namespace NoobTodo.Profiles
         {
             CreateMap<TodoList,ReadTodoListDto>();
             CreateMap<CreateTodoListDto,TodoList>();
+            CreateMap<UpdateTodoListDto,TodoList>();
         }
     }
 }
